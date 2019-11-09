@@ -81,7 +81,8 @@
 		    scrollTop: $("#sendBtn").offset().top
 		  }, 2000);
             sendMessage(text,'left');
-            $.get("https://nuance-core.site/getanswer", {s_id: sessionId, msg: text}).done(function(data) {
+            // TODO: outsource $.get address string to config file
+            $.get("https://localhost:6000/get_answer", {s_id: sessionId, msg: text}).done(function(data) {
 
                 resp = JSON.parse(data);
                 //sendMessage(resp['response_text'],'left');
