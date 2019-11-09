@@ -1,0 +1,4 @@
+Flask==1.0.2
+requests==2.20.1
+passlib==1.7.1
+gunicorn==19.9.0
