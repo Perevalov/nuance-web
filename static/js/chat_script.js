@@ -80,12 +80,12 @@
 		$('html, body').animate({
 		    scrollTop: $("#sendBtn").offset().top
 		  }, 2000);
-            sendMessage(text,'left');
+            
             // TODO: outsource $.get address string to config file
-            $.get("https://localhost:6000/get_answer", {s_id: sessionId, msg: text}).done(function(data) {
+            $.get("http://localhost:6000/get_answer", {s_id: sessionId, msg: text}).done(function(data) {
 
                 resp = JSON.parse(data);
-                //sendMessage(resp['response_text'],'left');
+                sendMessage(resp['response_text'],'left');
 
             });
         };
