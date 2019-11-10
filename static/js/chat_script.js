@@ -82,11 +82,9 @@
 		  }, 2000);
             
             // TODO: outsource $.get address string to config file
-            $.get("http://localhost:6000/get_answer", {s_id: sessionId, msg: text}).done(function(data) {
-
+            $.get("http://127.0.0.1:5001/get_answer", {user_text: text}).done(function(data) {
                 resp = JSON.parse(data);
-                sendMessage(resp['response_text'],'left');
-
+                sendMessage(resp['system_text'],'left');
             });
         };
 
