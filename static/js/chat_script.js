@@ -103,7 +103,7 @@
             }
         });
 
-        sendMessage('Hi, what you\'re intrested in?','left');
+        sendMessage('Hello there :)','left');
 
     });
 }.call(this));

@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request, flash, session, url_for, redirect, make_response
 from datetime import timedelta
+from flask_cors import CORS
 import requests
 
 app = Flask(__name__)
+CORS(app)
 app.secret_key = '12345678'
 
 
@@ -33,4 +35,4 @@ def exception_handler(e):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='127.0.0.1', port=5000)
