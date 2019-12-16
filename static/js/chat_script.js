@@ -82,7 +82,7 @@
 		  }, 2000);
             
             // TODO: outsource $.get address string to config file
-            $.get("https://nuance-core.herokuapp.com/get_answer", {user_text: text}).done(function(data) {
+            $.get("http://127.0.0.1:5002/get_answer_qanary", {user_text: text}).done(function(data) {
                 resp = JSON.parse(data);
                 sendMessage(resp['system_text'],'left');
             });
