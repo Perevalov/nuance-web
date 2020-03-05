@@ -109,7 +109,7 @@
             }
         });
 
-        sendMessage('Hello there :)','left');
+        sendMessage('Hello! Do you have any questions?','left');
 
     });
 }.call(this));

@@ -178,7 +178,7 @@ a:hover, a:active, a:focus {
 }
 
 .sk-spinner-wordpress.sk-spinner {
-  background-color: #ff0066;
+  background-color: #00afcb;
   width: 40px;
   height: 40px;
   border-radius: 40px;
@@ -248,7 +248,7 @@ a:hover, a:active, a:focus {
 }
 
 .navbar-default .navbar-nav > li a:hover {
-    color: #ff0066 !important;
+    color: #00afcb !important;
 }
 
 .navbar-default .navbar-nav > li > a:hover,
@@ -259,13 +259,13 @@ a:hover, a:active, a:focus {
 
 .navbar-default .navbar-nav li a:hover,
  .navbar-default .navbar-nav .active > a {
-    color: #ff0066;
+    color: #00afcb;
   }
 
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-    color: #ff0066;
+    color: #00afcb;
     background-color: transparent;
 }
 
@@ -275,7 +275,7 @@ a:hover, a:active, a:focus {
   }
 
 .navbar-default .navbar-toggle .icon-bar {
-    background: #ff0066;
+    background: #00afcb;
     border-color: transparent;
   }
 
@@ -819,7 +819,7 @@ footer .footer-copyright {
 
 body {
   background-color: #edeff2;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -1034,7 +1034,7 @@ body {
   position: relative;
   width: calc(100% - 20px);
   max-width: 800px;
-  height: 700px;
+  height: 695px;
   border-radius: 10px;
   background-color: #fff;
   left: 50%;
