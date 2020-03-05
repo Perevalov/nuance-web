@@ -1,0 +1,11 @@
+version: '2'
+services:
+  nuance_web:
+    restart: unless-stopped
+    image: nuance-web:latest
+    container_name: nuance-web-nuance-web
+    environment:
+      - SERVICE_TYPE=nuance-web
+    ports:
+      - '5500:5500'
+    network_mode: host
