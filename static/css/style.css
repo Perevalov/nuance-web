@@ -24,9 +24,9 @@ details[open] summary ~ * {
 
 body {
 		background: #ffffff;
-    font-family: 'Helvetica', cursive;
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
-		font-weight: 300;
+		font-weight: 500;
     overflow-x: hidden;
 }
 
@@ -36,20 +36,20 @@ body {
 -----------------------------------------*/
 
 h1,h2,h3,h4,h5,h6 {
-  font-family: 'Helvetica', cursive;
+  font-family: 'Montserrat', sans-serif;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 700;
   letter-spacing: 0.5px;
 }
 
 h1 {
-    font-size: 62px;
+    font-size: 68px;
     padding-bottom: 14px;
     margin-bottom: 0px;
 }
 
 h2 {
-  font-size: 32px;
+  font-size: 38px;
 }
 
 h2,h3 {
@@ -58,6 +58,7 @@ h2,h3 {
 
 h3 {
   font-size: 26px;
+  color: #222;
 }
 
 hr {
@@ -80,7 +81,7 @@ h4 {
 p {
     color: #777;
     font-size: 15px;
-    font-weight: 300;
+    font-weight: 500;
     line-height: 26px;
     letter-spacing: 0.2px;
 }
@@ -229,8 +230,8 @@ a:hover, a:active, a:focus {
 
 .navbar-default .navbar-brand {
   color: #555;
-  font-family: 'Helvetica', cursive;
-  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 4px;
   margin: 0;
@@ -347,8 +348,8 @@ a:hover, a:active, a:focus {
   border: 2px solid #ffffff;
   border-radius: 100px;
   color: #444;
-  font-family: 'Helvetica', cursive;
-  font-size: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
   font-weight: bold;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -666,14 +667,14 @@ a:hover, a:active, a:focus {
 -----------------------------------------*/
 
 footer {
-    background: #000;
+    background: #ffffff;;
     color: #ffffff;
-    padding: 80px 0px;
+    padding: 60px 0px;
     position: relative;
 }
 
 footer .col-md-4 .fa {
-  color: #ffffff;
+  color: #222;
   padding-right: 8px;
 }
 
@@ -1000,7 +1001,7 @@ body {
   border-radius: 50px;
   background-color: #00afc9;
   border: 2px solid #00afc9;
-  color: #fff;
+  color: #00c1df;
   cursor: pointer;
   transition: all 0.2s linear;
   text-align: center;
@@ -1008,7 +1009,7 @@ body {
 }
 .bottom_wrapper .send_message:hover {
   color: #00afc9;
-  background-color: #fff;
+  background-color: #00c1df;
 }
 .bottom_wrapper .send_message .text, .bottom_wrapper .booking_message .text, .bottom_wrapper .yes_message .text, .bottom_wrapper .no_message .text{
   font-size: 17px;
@@ -1026,7 +1027,7 @@ body {
 
 body {
   background-color: #edeff2;
-  font-family: "Helvetica", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .chat_window {
@@ -1075,7 +1076,7 @@ body {
   text-align: center;
   color: #bcbdc0;
   font-size: 20px;
-  font-family: 'Helvetica', cursive;
+  font-family: 'Montserrat', sans-serif;
     font-style: normal;
 }
 
@@ -1122,7 +1123,7 @@ body {
 }
 .messages .message .text_wrapper .text {
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 .bottom_wrapper {
@@ -1135,7 +1136,7 @@ body {
 }
 .bottom_wrapper .send_message:hover, .bottom_wrapper .yes_message:hover, .bottom_wrapper .no_message:hover, .bottom_wrapper .booking_message:hover{
   color: #00afc9;
-  background-color: #fff;
+  background-color: #00c1df;
 }
 .bottom_wrapper .send_message .text {
   font-size: 18px;
