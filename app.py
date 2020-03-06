@@ -19,6 +19,12 @@ def home():
     return render_template("index.html")
 
 
+@app.route("/get_answer")
+def get_answer():
+    result = requests.get("http://webengineering.ins.hs-anhalt.de:41266/get_answer")
+    return result.json()
+
+
 @app.route("/chat")
 def chat():
     return render_template("chat.html")
