@@ -21,8 +21,13 @@ def home():
 
 @app.route("/get_answer")
 def get_answer():
-    result = requests.get("http://webengineering.ins.hs-anhalt.de:41266/get_answer")
-    return result.json()
+    session_id = request.args.get("session_id")
+    question_text = request.args.get("user_text")
+
+    result = requests.get("http://10.144.43.12:41266/get_answer", params={"user_text": question_text,
+                                                                          "session_id": session_id})
+    result = result.json()
+    return json.dumps(result)
 
 
 @app.route("/chat")
