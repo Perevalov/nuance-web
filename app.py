@@ -19,6 +19,17 @@ def home():
     return render_template("index.html")
 
 
+@app.route("/get_answer")
+def get_answer():
+    session_id = request.args.get("session_id")
+    question_text = request.args.get("user_text")
+
+    result = requests.get("http://webengineering.ins.hs-anhalt.de:41266/get_answer", params={"user_text": question_text,
+                                                                          "session_id": session_id})
+    result = result.json()
+    return json.dumps(result)
+
+
 @app.route("/chat")
 def chat():
     return render_template("chat.html")
