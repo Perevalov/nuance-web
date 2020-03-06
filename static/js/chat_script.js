@@ -84,7 +84,7 @@
             var sessionId = getCookie("session_id");
 
             // TODO: outsource $.get address string to config file
-            $.get("https://nuance-core.herokuapp.com/get_answer", {session_id: sessionId, user_text: text}).done(function(data) {
+            $.get("http://webengineering.ins.hs-anhalt.de:41266/get_answer", {session_id: sessionId, user_text: text}).done(function(data) {
                 resp = JSON.parse(data);
                 if (!sessionId) {
 	                delay = new Date(new Date().getTime() + 15*60*1000);
