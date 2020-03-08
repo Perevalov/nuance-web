@@ -82,9 +82,11 @@
 		  }, 2000);
 
             var sessionId = getCookie("session_id");
+            var lat = getCookie("latitude");
+            var lng = getCookie("longitude");
 
             // TODO: outsource $.get address string to config file
-            $.get("http://nuance-web.herokuapp.com/get_answer", {session_id: sessionId, user_text: text}).done(function(data) {
+            $.get("http://127.0.0.1:5050/get_answer", {session_id: sessionId, user_text: text, latitude: lat, longitude: lng}).done(function(data) {
                 resp = JSON.parse(data);
                 if (!sessionId) {
 	                delay = new Date(new Date().getTime() + 15*60*1000);

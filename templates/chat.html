@@ -18,7 +18,6 @@ http://www.tooplate.com/view/2085-neuron
 -->
 <link rel="stylesheet" href="../static/css/bootstrap.min.css">
 <link rel="stylesheet" href="../static/css/font-awesome.min.css">
-
 <!-- Main css -->
 <link rel="stylesheet" href="../static/css/style.css">
 <link href="//fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap" rel="stylesheet">
@@ -60,6 +59,14 @@ http://www.tooplate.com/view/2085-neuron
                     </div>
                     </li>
                </div>
+               <div class="col-lg-12 center-block text-center">
+                    <p>
+                         <details>
+                              <summary>Location Picker</summary>
+                              <div id="googleMap" style="width:100%;height:300px;"></div>
+                         </details>
+                    </p>
+               </div>
           </div>
      </div>
 </section>
@@ -67,7 +74,39 @@ http://www.tooplate.com/view/2085-neuron
 <!-- Back top -->
 
 <!-- SCRIPTS -->
+<script>
+var markersArray = [];
 
+function myMap() {
+var mapProp= {
+    center:new google.maps.LatLng(51.74609,11.981306),
+    zoom:15,
+};
+google.maps.Map.prototype.clearOverlays = function() {
+  for (var i = 0; i < markersArray.length; i++ ) {
+    markersArray[i].setMap(null);
+  }
+  markersArray.length = 0;
+}
+
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+google.maps.event.addListener(map, 'click', function(event) {
+//set cookies
+document.cookie = "latitude="+ event.latLng.lat() +"; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
+document.cookie = "longitude="+ event.latLng.lng() +"; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
+
+//alert(event.latLng.lat() + ", " + event.latLng.lng());
+map.clearOverlays();
+var marker = new google.maps.Marker({
+            position: event.latLng,
+            map: map,
+        });
+markersArray.push(marker);
+});
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALl2RhrOPAPHLgOUwI2dWt37zSEKcKDuI&callback=myMap&language=de&region=DE"></script>
 <script src="../static/js/jquery.js"></script>
 <script src="../static/js/bootstrap.min.js"></script>
 <script src="../static/js/jquery.parallax.js"></script>

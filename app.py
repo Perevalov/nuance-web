@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, flash, session, url_for, redirect, make_response
 from datetime import timedelta
 from flask_cors import CORS
-import requests
 
 app = Flask(__name__)
 CORS(app)
@@ -17,17 +16,6 @@ def make_session_permanent():
 @app.route("/")
 def home():
     return render_template("index.html")
-
-
-@app.route("/get_answer")
-def get_answer():
-    session_id = request.args.get("session_id")
-    question_text = request.args.get("user_text")
-
-    result = requests.get("http://webengineering.ins.hs-anhalt.de:41266/get_answer", params={"user_text": question_text,
-                                                                          "session_id": session_id})
-    result = result.json()
-    return json.dumps(result)
 
 
 @app.route("/chat")
