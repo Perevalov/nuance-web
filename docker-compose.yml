@@ -7,5 +7,5 @@ services:
     environment:
       - SERVICE_TYPE=nuance-web
     ports:
-      - '5500:5500'
+      - '41210:5500'
     network_mode: host
