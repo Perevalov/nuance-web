@@ -111,7 +111,7 @@
             }
         });
 
-        sendMessage('Hello! Do you have any questions?','left');
+        sendMessage('What information do you need?','left');
 
     });
 }.call(this));
