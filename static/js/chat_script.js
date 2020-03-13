@@ -16,13 +16,13 @@
         return this;
     };
     $(function () {
-        var getMessageText, sendMessage,sendRequest,getCookie,setCookie;
+        var getMessageText, sendMessage, sendRequest, getCookie, setCookie;
         getMessageText = function () {
             var $message_input;
             $message_input = $('.message_input');
             return $message_input.val();
         };
-        sendMessage = function (text,message_side) {
+        sendMessage = function (text, message_side) {
             var $messages, message;
             if (text.trim() === '') {
                 return;
@@ -36,69 +36,68 @@
             message.draw();
 
             $('[data-toggle="popover"]').popover({
-                placement : 'right'
+                placement: 'right'
             });
             return $messages.animate({ scrollTop: $messages.prop('scrollHeight') }, 300);
         };
         setCookie = function (name, value, options) {
-          options = options || {};
+            options = options || {};
 
-          var expires = options.expires;
+            var expires = options.expires;
 
-          if (typeof expires == "number" && expires) {
-            var d = new Date();
-            d.setTime(d.getTime() + expires * 1000);
-            expires = options.expires = d;
-          }
-          if (expires && expires.toUTCString) {
-            options.expires = expires.toUTCString();
-          }
-
-          value = encodeURIComponent(value);
-
-          var updatedCookie = name + "=" + value;
-
-          for (var propName in options) {
-            updatedCookie += "; " + propName;
-            var propValue = options[propName];
-            if (propValue !== true) {
-              updatedCookie += "=" + propValue;
+            if (typeof expires == "number" && expires) {
+                var d = new Date();
+                d.setTime(d.getTime() + expires * 1000);
+                expires = options.expires = d;
             }
-          }
+            if (expires && expires.toUTCString) {
+                options.expires = expires.toUTCString();
+            }
 
-          document.cookie = updatedCookie;
+            value = encodeURIComponent(value);
+
+            var updatedCookie = name + "=" + value;
+
+            for (var propName in options) {
+                updatedCookie += "; " + propName;
+                var propValue = options[propName];
+                if (propValue !== true) {
+                    updatedCookie += "=" + propValue;
+                }
+            }
+
+            document.cookie = updatedCookie;
         }
-        
-        
+
         getCookie = function (name) {
-          var matches = document.cookie.match(new RegExp(
-            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-          ));
-          return matches ? decodeURIComponent(matches[1]) : undefined;
+            var matches = document.cookie.match(new RegExp(
+                "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+            ));
+            return matches ? decodeURIComponent(matches[1]) : undefined;
         };
         sendRequest = function (text) {
-		$('html, body').animate({
-		    scrollTop: $("#sendBtn").offset().top
-		  }, 2000);
+            $('html, body').animate({
+                scrollTop: $("#sendBtn").offset().top
+            }, 2000);
 
             var sessionId = getCookie("session_id");
             var lat = getCookie("latitude");
             var lng = getCookie("longitude");
 
             // TODO: outsource $.get address string to config file
-            $.get("http://webengineering.ins.hs-anhalt.de:41266/get_answer", {session_id: sessionId, user_text: text, latitude: lat, longitude: lng}).done(function(data) {
+            $.get("http://webengineering.ins.hs-anhalt.de:41266/get_answer", { session_id: sessionId, user_text: text, latitude: lat, longitude: lng }).done(function (data) {
                 resp = JSON.parse(data);
                 if (!sessionId) {
-	                delay = new Date(new Date().getTime() + 15*60*1000);
-                    setCookie('session_id', resp['session_id'], {expires: delay});
+                    delay = new Date(new Date().getTime() + 15 * 60 * 1000);
+                    setCookie('session_id', resp['session_id'], { expires: delay });
                 }
-                sendMessage(resp['system_text'],'left');
+                sendMessage(resp['system_text'], 'left');
             });
         };
 
         $('.send_message').click(function (e) {
             var rawText = getMessageText();
-            sendMessage(rawText,'right');
+            sendMessage(rawText, 'right');
             sendRequest(rawText);
         });
 
@@ -106,12 +105,14 @@
         $('.message_input').keyup(function (e) {
             if (e.which === 13) {
                 var rawText = getMessageText();
-                sendMessage(rawText,'right');
+                sendMessage(rawText, 'right');
                 sendRequest(rawText);
             }
         });
 
-        sendMessage('What information do you need?','left');
+        sendMessage('What information do you need?', 'left');
+        sendMessage('You can ask be questions like: <br> <b>What kind of music does Steely Dan play?</b> <br> <b>What time zone is in Wuhan?</b> <br> <b>Where is the artist Vitas from?</b> <br> <b>Where was Barack Obama born?</b> <br> Do not forget, that you can always ask <b>Tell me more</b>. ', 'left');
+        sendMessage('Also, you can ask questions based on your location. For this demo, it is possible to choose location by pressing <b>Location Picker</b> button below the chat window.', 'left');
 
     });
 }.call(this));
